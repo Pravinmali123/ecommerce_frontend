@@ -102,7 +102,7 @@ const Buy = () => {
 
           // SAVE ORDER
           const res = await axios.post(
-            "http://localhost:3100/order/postorder",
+            "https://full-stack-ecommerce-xewj.onrender.com/order/postorder",
             finalData
           );
 

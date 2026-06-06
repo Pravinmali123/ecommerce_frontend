@@ -20,7 +20,7 @@ const Login = () => {
   }
 
   try {
-    const res = await axios.post("http://localhost:3100/login/postlogin", values);  
+    const res = await axios.post("https://full-stack-ecommerce-xewj.onrender.com/login/postlogin", values);  
     console.log("res ==> ",res)
 
     localStorage.setItem("token", res.data.token);

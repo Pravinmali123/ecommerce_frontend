@@ -1,4 +1,4 @@
-import React, { useEffect, useState , } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { Star } from "lucide-react";
 // import { useParams } from "react-router-dom";
@@ -21,7 +21,7 @@ const { search, selectedCategory } = useContext(MyContext);
   try {
 
    const res = await axios.post(
-      "http://localhost:3100/cart/postcart",
+      "https://full-stack-ecommerce-xewj.onrender.com/cart/postcart",
       item
     );
     console.log(res);
@@ -37,44 +37,33 @@ const { search, selectedCategory } = useContext(MyContext);
 };
 
 
- const getProducts = async () => {
+const getProducts = useCallback(async () => {
 
   try {
 
-    let url = "http://localhost:3100/product";
+    let url = "https://full-stack-ecommerce-xewj.onrender.com/product";
 
-    // SEARCH API
     if (search) {
-
-      url = `http://localhost:3100/product/search?search=${search}`;
-
+      url = `https://full-stack-ecommerce-xewj.onrender.com/product/search?search=${search}`;
     }
 
-    // CATEGORY
     else if (selectedCategory) {
-
       url += `?category=${selectedCategory}`;
-
     }
 
     const res = await axios.get(url);
-    
-    
+
     setProducts(res.data.data);
 
   } catch (error) {
-
     console.log(error);
-
   }
 
-};
+}, [search, selectedCategory]);
 
-  useEffect(() => {
-
-    getProducts();
-
-  }, [selectedCategory, search]);
+useEffect(() => {
+  getProducts();
+}, [getProducts]);
 
   return (
 

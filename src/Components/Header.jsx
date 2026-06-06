@@ -33,7 +33,7 @@ const Header = () => {
     try {
 
       const res = await axios.get(
-        "http://localhost:3100/cart"
+        "https://full-stack-ecommerce-xewj.onrender.com/cart"
       );
 
       const totalItems = res.data.data.reduce(

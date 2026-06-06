@@ -16,7 +16,7 @@ const Sign = () => {
     console.log("values ==", values);
     
   axios
-      .post("http://localhost:3100/register/postregister", values)
+      .post("https://full-stack-ecommerce-xewj.onrender.com/register/postregister", values)
       
       .then(() => {
         alert("Signup Completed");

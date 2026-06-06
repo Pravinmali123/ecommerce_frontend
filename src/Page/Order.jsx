@@ -18,7 +18,7 @@ const Order = () => {
     try {
 
       const res = await axios.get(
-        "http://localhost:3100/order"
+        "https://full-stack-ecommerce-xewj.onrender.com/order"
       );
 
       console.log(res.data);

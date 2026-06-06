@@ -21,7 +21,7 @@ const navigate = useNavigate();
     if (quantity < 1) return;
 
     await axios.patch(
-      `http://localhost:3100/cart/updatecart/${id}`,
+      `https://full-stack-ecommerce-xewj.onrender.com/cart/updatecart/${id}`,
       { quantity }
     );
 
@@ -37,7 +37,7 @@ const navigate = useNavigate();
     try {
 
       const res = await axios.get(
-        "http://localhost:3100/cart"
+        "https://full-stack-ecommerce-xewj.onrender.com/cart"
       );
 
       console.log(res.data);
@@ -64,7 +64,7 @@ const navigate = useNavigate();
     try {
 
       await axios.delete(
-        `http://localhost:3100/cart/deletecart/${id}`
+        `https://full-stack-ecommerce-xewj.onrender.com/cart/deletecart/${id}`
       );
 
       alert("Product Removed From Cart");

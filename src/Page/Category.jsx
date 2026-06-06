@@ -14,7 +14,7 @@ const Category = () => {
     try {
 
       const res = await axios.get(
-        "http://localhost:3100/cat"
+        "https://full-stack-ecommerce-xewj.onrender.com/cat"
       );
 
       setCategories(res.data.data);
