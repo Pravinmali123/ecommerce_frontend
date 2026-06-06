@@ -25,7 +25,7 @@ const Addproduct = () => {
     try {
 
       const res = await axios.get(
-        "http://localhost:3100/product"
+        "https://full-stack-ecommerce-xewj.onrender.com/product"
       );
 
       setProducts(res.data.data);
@@ -95,7 +95,7 @@ const Addproduct = () => {
       if (editId) {
 
         await axios.patch(
-          `http://localhost:3100/product/editproduct/${editId}`,
+          `https://full-stack-ecommerce-xewj.onrender.com/product/editproduct/${editId}`,
           formData
         );
 
@@ -108,7 +108,7 @@ const Addproduct = () => {
       else {
 
         await axios.post(
-          "http://localhost:3100/product/postproduct",
+          "https://full-stack-ecommerce-xewj.onrender.com/product/postproduct",
           formData
         );
 
@@ -147,7 +147,7 @@ const Addproduct = () => {
     try {
 
       await axios.delete(
-        `http://localhost:3100/product/deleteproduct/${id}`
+        `https://full-stack-ecommerce-xewj.onrender.com/product/deleteproduct/${id}`
       );
 
       alert("Product Deleted");

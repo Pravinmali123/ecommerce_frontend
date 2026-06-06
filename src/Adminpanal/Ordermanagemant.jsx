@@ -1,7 +1,7 @@
 import React, {
   useEffect,
   useState,
-  // useContext
+  useCallback
 } from "react";
 // import MyContext from "../context/MyContext";
 
@@ -14,17 +14,17 @@ const Ordermanagemant = () => {
     useState([]);
 
   // GET ORDERS
-const getorder = async () => {
+const getorder = useCallback(async () => {
   try {
     const res = await axios.get(
-      `http://localhost:3100/order?search=${input}`
+      `https://full-stack-ecommerce-xewj.onrender.com/order?search=${input}`
     );
 
     setOrders(res.data.data);
   } catch (error) {
     console.log(error);
   }
-};
+}, [input]);
 
   // DELETE ORDER
   const deleteOrder = async (id) => {
@@ -32,7 +32,7 @@ const getorder = async () => {
     try {
 
       await axios.delete(
-        `http://localhost:3100/order/deleteorder/${id}`
+        `https://full-stack-ecommerce-xewj.onrender.com/order/deleteorder/${id}`
       );
 
       alert("Order Deleted");
@@ -56,7 +56,7 @@ const getorder = async () => {
     try {
 
       await axios.patch(
-        `http://localhost:3100/order/editorder/${id}`,
+        `https://full-stack-ecommerce-xewj.onrender.com/order/editorder/${id}`,
         {
           delivery_status: status
         }
@@ -72,11 +72,9 @@ const getorder = async () => {
 
   };
 
-  useEffect(() => {
-
-    getorder();
-
-  }, []);
+useEffect(() => {
+  getorder();
+}, [getorder]);
 
   return (
 

@@ -18,7 +18,7 @@ const Categarymanagemant = () => {
     try {
 
       const res = await axios.get(
-        "http://localhost:3100/cat"
+        "https://full-stack-ecommerce-xewj.onrender.com/cat"
       );
 
       console.log(res.data);
@@ -80,7 +80,7 @@ const Categarymanagemant = () => {
       if (editId) {
 
         await axios.patch(
-          `http://localhost:3100/cat/editcategary/${editId}`,
+          `https://full-stack-ecommerce-xewj.onrender.com/cat/editcategary/${editId}`,
           formData
         );
 
@@ -90,7 +90,7 @@ const Categarymanagemant = () => {
 
         // ADD
         await axios.post(
-          "http://localhost:3100/cat/postcategary",
+          "https://full-stack-ecommerce-xewj.onrender.com/cat/postcategary",
           formData
         );
 
@@ -124,7 +124,7 @@ const Categarymanagemant = () => {
     try {
 
       await axios.delete(
-        `http://localhost:3100/cat/deletecategary/${id}`
+        `https://full-stack-ecommerce-xewj.onrender.com/cat/deletecategary/${id}`
       );
 
       alert("Category Deleted Successfully");
